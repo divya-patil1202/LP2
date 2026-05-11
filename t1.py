@@ -1,4 +1,3 @@
-# Full Simple Calculator in Python
 
 print("Simple Calculator")
 print("1. Addition")
