@@ -1,27 +1,30 @@
+# Full Simple Calculator in Python
 
+print("Simple Calculator")
+print("1. Addition")
+print("2. Subtraction")
+print("3. Multiplication")
+print("4. Division")
 
-from flask import Flask, request
+choice = input("Enter choice (1/2/3/4): ")
 
-app = Flask(__name__)
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
 
-@app.route('/')
-def calculator():
-    num1 = request.args.get('num1', default=0, type=float)
-    num2 = request.args.get('num2', default=0, type=float)
-    op = request.args.get('op', default='+')
+if choice == '1':
+    print("Result =", num1 + num2)
 
-    if op == '+':
-        result = num1 + num2
-    elif op == '-':
-        result = num1 - num2
-    elif op == '*':
-        result = num1 * num2
-    elif op == '/':
-        result = "Cannot divide by zero" if num2 == 0 else num1 / num2
+elif choice == '2':
+    print("Result =", num1 - num2)
+
+elif choice == '3':
+    print("Result =", num1 * num2)
+
+elif choice == '4':
+    if num2 != 0:
+        print("Result =", num1 / num2)
     else:
-        result = "Invalid Operator"
+        print("Cannot divide by zero")
 
-    return f"Result = {result}"
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+else:
+    print("Invalid choice")
